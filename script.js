@@ -7,11 +7,16 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
+  var characters;
+  var little;
+  var capital;
+  var numbers;
+  var weird;
+
   passwordText.value = password;
 
   function generatePassword () {
     // window prompt for number of characters
-    function characters () {
       var passwordLength = prompt("Number of Password Characters?\nPick a Number Between 8 and 128!");
           if (passwordLength == null) {
             return;
@@ -25,47 +30,49 @@ function writePassword() {
             alert("Your password cannot be more than 128 characters. Please try again!");
             generatePassword();
           } else {
+            characters = passwordLength.value;
             lower();}
-          }
     // window prompt for lowercase characters
     function lower () {
       var lowerCase = confirm("Should your password include lowercase characters?\nYes = OK\nNo = Cancel");
       if (lowerCase == true) {
+        little = ("abcdefghijklmnopqrstuvwxyz");
         upper();
       } else {
         upper();}
       }
     //window prompt for uppercase characters 
       function upper () {
-        var upperCase = confirm("Should your password include uppercase characters?");
+        var upperCase = confirm("Should your password include uppercase characters?\nYes = OK\nNo = Cancel");
         if (upperCase == true) {
+          capital = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
           numeric();
         } else {
           numeric();}
         }
     // window prompt for numeric characters
       function numeric () {
-        var numericChars = confirm("Would you like to include numbers in your password?");
+        var numericChars = confirm("Would you like to include numbers in your password?\nYes = OK\nNo = Cancel");
         if (numericChars == true) {
+          numbers = ("1234567890")
           special();
         } else {
           special();}
         }
-
     // window prompt for special characters
         function special () {
-          var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, etc.");
+          var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, &, @, ), #, (, ^, ~, ?, +\nYes = OK\nNo = Cancel");
           if (specialChars == true) {
-            alert("Okay now what");
+            weird = ("!@#$%^&*()+~?")
+            return;
           } else {
-            alert ("Not sure what to do next")};
+            return;
         }
-
-        characters();
 
   }
 
  }
+}
 
 
 // Add event listener to generate button
