@@ -25,7 +25,9 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ![alt text](assets/images/screenshot.png)
 
-## Credits
+## Resources
+
+https://www.w3schools.com/js/js_popup.asp - window pop up/confirm
 
 List your collaborators, if any, with links to their GitHub profiles.
 
