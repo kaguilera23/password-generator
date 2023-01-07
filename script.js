@@ -7,11 +7,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  var characters;
-  var little;
-  var capital;
-  var numbers;
-  var weird;
+
 
   passwordText.value = password;
 
@@ -30,13 +26,13 @@ function writePassword() {
             alert("Your password cannot be more than 128 characters. Please try again!");
             generatePassword();
           } else {
-            characters = passwordLength.value;
+            var characters = passwordLength.value;
             lower();}
     // window prompt for lowercase characters
     function lower () {
       var lowerCase = confirm("Should your password include lowercase characters?\nYes = OK\nNo = Cancel");
       if (lowerCase == true) {
-        little = ("abcdefghijklmnopqrstuvwxyz");
+        var little = ("abcdefghijklmnopqrstuvwxyz");
         upper();
       } else {
         upper();}
@@ -45,7 +41,7 @@ function writePassword() {
       function upper () {
         var upperCase = confirm("Should your password include uppercase characters?\nYes = OK\nNo = Cancel");
         if (upperCase == true) {
-          capital = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+          var capital = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
           numeric();
         } else {
           numeric();}
@@ -54,7 +50,7 @@ function writePassword() {
       function numeric () {
         var numericChars = confirm("Would you like to include numbers in your password?\nYes = OK\nNo = Cancel");
         if (numericChars == true) {
-          numbers = ("1234567890")
+          var numbers = ("1234567890")
           special();
         } else {
           special();}
@@ -63,11 +59,26 @@ function writePassword() {
         function special () {
           var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, &, @, ), #, (, ^, ~, ?, +\nYes = OK\nNo = Cancel");
           if (specialChars == true) {
-            weird = ("!@#$%^&*()+~?")
+            var weird = ("!@#$%^&*()+~?")
             return;
           } else {
             return;
         }
+
+  randomize(passwordLength.value);
+  https://www.youtube.com/watch?v=jww3V2fSQyg
+  function randomize () {
+    var options;
+    var generated="";
+     if (lowerCase) {
+      options = little;
+
+      for(var i = 0, i < little.length, i++) {
+        options = little;
+      }
+
+     }
+  }
 
   }
 
