@@ -33,9 +33,31 @@ function writePassword() {
   function upper () {
     var upperCase = confirm("Should your password include uppercase characters?");
     if (upperCase == true) {
-
+      numeric();
+    } else {
+      numeric();
     }
   }
+
+  function numeric () {
+    var numericChars = confirm("Would you like to include numbers in your password?");
+    if (numericChars == true) {
+      special();
+    } else {
+      special();
+    }
+
+    function special () {
+      var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, etc.");
+      if (specialChars == true) {
+        alert("Okay now what");
+      } else {
+        alert ("Not sure what to do next")
+      }
+    }
+
+  }
+
  }
 
 }
