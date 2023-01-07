@@ -12,6 +12,7 @@ function writePassword() {
   passwordText.value = password;
 
   function generatePassword () {
+    var little;
     // window prompt for number of characters
       var passwordLength = prompt("Number of Password Characters?\nPick a Number Between 8 and 128!");
           if (passwordLength == null) {
@@ -31,55 +32,47 @@ function writePassword() {
             lower();
           }
     // window prompt for lowercase characters
-    
-
     function lower () {
       var lowerCase = confirm("Should your password include lowercase characters?\nYes = OK\nNo = Cancel");
       if (lowerCase == true) {
+        var little = lowerCase;
         upper();
-        return true;
       } else {
-        upper();}
+        upper();};
+
+        console.log(little)
       }
-      var x = lower;
     //window prompt for uppercase characters 
     function upper () {
       var upperCase = confirm("Should your password include uppercase characters?\nYes = OK\nNo = Cancel");
        if (upperCase == true) {
+         var capital = upperCase;
          numeric();
-         return true;
        } else {
          numeric();}
        }
-       var y = upper;
     // window prompt for numeric characters
     function numeric () {
       var numericChars = confirm("Would you like to include numbers in your password?\nYes = OK\nNo = Cancel");
         if (numericChars == true) {
+         var numbers = numericChars;
          special();
-         return true;
        } else {
          special();}
        }
-       var z = numeric;
     // window prompt for special characters
     function special () {
       var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, &, @, ), #, (, ^, ~, ?, +\nYes = OK\nNo = Cancel");
         if (specialChars == true) {
-          return true;
+         var weird = specialChars;
           return;
          } else {
            return;}
        }
-       var a = special;
+       
+}
 
-       if (x && y && z && a) {
-        console.log("Something");
-       };
-
-      }
-    }
-
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
