@@ -70,7 +70,7 @@ function writePassword() {
 
        var x = characters();   
        if (!x) {
-        return "Try again!";
+        return "Try Again!";
        };
 
       var a = lower();
@@ -101,7 +101,7 @@ function writePassword() {
         var generatedPassword = randomize(x);
         return generatedPassword;
       }
-      else if (b && !a && !b && !c) {
+      else if (b && !a && !c && !d) {
         var characters = capitalLetters;
         console.log("only big");
         var generatedPassword = randomize(x);
