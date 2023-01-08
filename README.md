@@ -29,6 +29,8 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 https://www.w3schools.com/js/js_popup.asp - window pop up/confirm
 https://www.w3schools.com/jsref/met_win_prompt.asp - window prompt
+https://www.w3schools.com/jsref/jsref_return.asp - return statement
+https://www.youtube.com/watch?v=jww3V2fSQyg - create a random string
 
 List your collaborators, if any, with links to their GitHub profiles.
 

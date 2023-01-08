@@ -17,7 +17,7 @@ function writePassword() {
     function characters () {
       var passwordLength = prompt("Number of Password Characters?\nPick a Number Between 8 and 128!");
           if (passwordLength == null) {
-            return;
+            return false;
           } else if (passwordLength == "") {
             alert("Please pick a length for your password");
             generatePassword();
@@ -63,15 +63,20 @@ function writePassword() {
       var specialChars = confirm("Would you like to include special characters in your password?\nSpecial Characters include $, %, *, !, &, @, ), #, (, ^, ~, ?, +\nYes = OK\nNo = Cancel");
         if (specialChars == true) {
           return true;
-         } else {
-          return false;}
+      } else {
+        return false;
+      }
        }
 
-       var x = characters();    
-var a = lower();
-var b = upper();
-var c = numeric();
-var d = special();
+       var x = characters();   
+       if (!x) {
+        return "Try again!";
+       };
+
+      var a = lower();
+      var b = upper();
+      var c = numeric();
+      var d = special();
 
       console.log(x);
       console.log(a);
@@ -79,40 +84,113 @@ var d = special();
       console.log(c);
       console.log(d);
 
+      var lowercaseLetters = ('abcdefghijklmnopqrstuvwxyz')
+      var capitalLetters = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+      var numbers = ('1234567890')
+      var specialCharacters = ('$%*!&@)#(^~?+')
+
     if (a && b && c && d) {
-        console.log("Hello");
-      } else if (a && !b && !c && !d) {
+      var characters = lowercaseLetters.concat(capitalLetters, numbers, specialCharacters)
+        console.log("little, big, numbers, %");
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && !b && !c && !d) {
+        var characters = lowercaseLetters;
         console.log("only little");
-      } else if (b && !a && !b && !c) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (b && !a && !b && !c) {
+        var characters = capitalLetters;
         console.log("only big");
-      } else if (c && !a && !b && !d) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (c && !a && !b && !d) {
+        var characters = numbers;
         console.log("only numbers");
-      } else if (d && !a && !b && !c) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (d && !a && !b && !c) {
+        var characters = specialCharacters;
         console.log("only %");
-      } else if (a && b && c && !d) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && b && c && !d) {
+        var characters = lowercaseLetters.concat(capitalLetters, numbers)
         console.log("little, big, numbers");
-      } else if (b && c && d && !a) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (b && c && d && !a) {
+        var characters = capitalLetters.concat(numbers, specialCharacters)
         console.log("big, numbers, %");
-      } else if (a && c && d && !b) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && c && d && !b) {
+        var characters = lowercaseLetters.concat(numbers, specialCharacters);
         console.log("little, numbers, %");
-      } else if (a && b && d && !c) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && b && d && !c) {
+        var characters = lowercaseLetters.concat(capitalLetters, specialCharacters)
         console.log("little, big, %");
-      } else if (a && b && !c && !d) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && b && !c && !d) {
+        var characters = lowercaseLetters.concat(capitalLetters)
         console.log("big and little");
-      } else if (a && c && !b && !d) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && c && !b && !d) {
+        var characters = lowercaseLetters.concat(numbers)
         console.log("little numbers");
-      } else if (a && d && !b && !c) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (a && d && !b && !c) {
+        var characters = lowercaseLetters.concat(specialCharacters)
         console.log("little and %");
-      } else if (b && c && !a && !d) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (b && c && !a && !d) {
+        var characters = capitalLetters.concat(numbers)
         console.log("big and numbers");
-      } else if (b && d && !a && !c) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (b && d && !a && !c) {
+        var characters = capitalLetters.concat(specialCharacters)
         console.log("big and %");
-      } else if (c && d && !a && !b) {
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (c && d && !a && !b) {
+        var characters = numbers.concat(specialCharacters)
         console.log("numbers and %");
-      } else if (!(a && b && c && d)) {
-        console.log("Sorry, your password has no characters");
+        var generatedPassword = randomize(x);
+        return generatedPassword;
+      }
+      else if (!(a && b && c && d)) {
+        return "Unable to create password. Please select at least one password element. Try again!";
       }
         
+    function randomize(passwordlength) {
+      var randomPassword = "";
+      var charactersTwo = characters;
+      for (var i = 0; i < passwordlength; i++) {
+        randomPassword += charactersTwo.charAt(Math.floor(Math.random() * charactersTwo.length))
+      }
+      return randomPassword;
+    }
 
 
     }
